@@ -13,14 +13,25 @@ class BinaryTreeTest: XCTestCase {
 
     override func setUp() {
     }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    
+    // BST: [5,3,1,4,7,6,8]
+    func setUpBinaryTree() -> BinaryTree {
+        let tree = BinaryTree(5)
+        tree.root.left = TreeNode(3)
+        tree.root.left?.left = TreeNode(1)
+        tree.root.left?.right = TreeNode(4)
+        tree.root.right = TreeNode(7)
+        tree.root.right?.left = TreeNode(6)
+        tree.root.right?.right = TreeNode(8)
+        
+        return tree
     }
-
-    func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    func testPrint()
+    {
+        let tree = setUpBinaryTree()
+        tree.root.inordePrint()
     }
 
 }

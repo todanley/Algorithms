@@ -16,6 +16,7 @@ protocol ListNode
     static func search(_ node: Self?, val: Int) -> Self?
     static func insert(_ head: inout Self?, val: Int)
     static func delete(_ head: inout Self?, val: Int)
+    static func delete(_ head: inout Self?, val: Self)
 }
 
 func printll<T: ListNode>(_ node: T?)
@@ -86,6 +87,10 @@ final class SinglyListNode: ListNode, Equatable
          }
     }
     
+    static func delete(_ head: inout SinglyListNode?, val: SinglyListNode) {
+        //impossible for singly linked list.
+    }
+    
     required init(_ val: Int, valArr: [Int]) {
         self.val = val
         
@@ -99,7 +104,32 @@ final class SinglyListNode: ListNode, Equatable
     var val: Int = 0
 }
 
-final public class DoublyListNode: ListNode {
+final public class DoublyListNode: ListNode, Equatable {
+
+    public static func == (lhs: DoublyListNode, rhs: DoublyListNode) -> Bool {
+         var l: DoublyListNode? = lhs
+               var r: DoublyListNode? = rhs
+               while l?.val == r?.val
+               {
+                   if l == nil && r == nil
+                   {
+                        return true
+                   }
+
+                if (l?.next == nil && r?.next == nil) || l?.next?.prev?.val == l?.val && r?.next?.prev?.val == r?.val
+                {
+                    l = l?.next
+                    r = r?.next
+                }
+                else
+                {
+                    return false
+                }
+               }
+               
+               return false
+    }
+    
     var val: Int
     var next: DoublyListNode?
     var prev: DoublyListNode?
@@ -109,9 +139,43 @@ final public class DoublyListNode: ListNode {
     }
     
     static func insert(_ head: inout DoublyListNode?, val: Int) {
+        let node = DoublyListNode(val)
+        
+        if let head = head
+        {
+            head.prev = node
+        }
+        
+        node.next = head
+        node.prev = nil  // necessary if a node is passed in.
+        head = node
+    }
+
+    static func delete(_ head: inout DoublyListNode?, val: Int) {
+        var curr = head
+        while curr != nil && curr?.next?.val != val
+        {
+            curr = curr?.next
+        }
+        
+        if curr != nil
+        {
+            curr?.next?.prev = curr?.prev
+            curr?.prev?.next = curr?.next?.next
+        }
     }
     
-    static func delete(_ head: inout DoublyListNode?, val: Int) {
+    static func delete(_ head: inout DoublyListNode?, val: DoublyListNode) {
+        if let prev = val.prev
+        {
+            prev.next = val.next
+        }
+        else
+        {
+            head = val
+        }
+        
+        val.next?.prev = val.prev
     }
 
     required init(_ val: Int, valArr: [Int] = [Int]()) {
@@ -121,6 +185,7 @@ final public class DoublyListNode: ListNode {
         {
             let node = DoublyListNode(valArr[0], valArr: Array(valArr.dropFirst()))
             self.next = node
+            node.prev = self
         }
     }
     

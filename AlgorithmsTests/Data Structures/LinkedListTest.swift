@@ -29,7 +29,7 @@ class LinkedListTest: XCTestCase {
         XCTAssertNotEqual(SinglyListNode(0, valArr: []), SinglyListNode(1, valArr: []))
         XCTAssertNotEqual(SinglyListNode(1, valArr: [1,2]), SinglyListNode(1, valArr: [2, 1]))
     }
-
+    
     func testSearch() {
         var ssl = setUpSLL()
         XCTAssertNil(SinglyListNode.search(ssl,val: 9))
@@ -60,12 +60,13 @@ class LinkedListTest: XCTestCase {
         XCTAssertEqual(ssl, SinglyListNode(2, valArr: [3]))
     }
 
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func setUpDLL() -> DoublyListNode
+    {
+        return DoublyListNode(1, valArr: [2,3,4])
     }
 
+    func testDEqual() {
+        let ddl = setUpDLL()
+        XCTAssertEqual(ddl, DoublyListNode.init(1, valArr: [2,3,4]))
+    }
 }

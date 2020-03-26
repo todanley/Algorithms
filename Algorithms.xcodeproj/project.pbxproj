@@ -18,6 +18,7 @@
 		A929674423D087B300807D6D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A929674223D087B300807D6D /* LaunchScreen.storyboard */; };
 		A929674C23D08B3A00807D6D /* Algorithms.swift in Sources */ = {isa = PBXBuildFile; fileRef = A929674B23D08B3A00807D6D /* Algorithms.swift */; };
 		A932A5A42418EDD0008D31EE /* LinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A932A5A32418EDD0008D31EE /* LinkedList.swift */; };
+		A946B50B241E523100978A8C /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A946B50A241E523100978A8C /* Stack.swift */; };
 		A9770F9823E50A01005F79E3 /* AlgorithmsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9770F9723E50A01005F79E3 /* AlgorithmsTests.swift */; };
 		A9872B92240B8E9E00C632F8 /* extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9872B91240B8E9E00C632F8 /* extension.swift */; };
 /* End PBXBuildFile section */
@@ -46,6 +47,7 @@
 		A929674523D087B300807D6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A929674B23D08B3A00807D6D /* Algorithms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Algorithms.swift; sourceTree = "<group>"; };
 		A932A5A32418EDD0008D31EE /* LinkedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedList.swift; sourceTree = "<group>"; };
+		A946B50A241E523100978A8C /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		A9770F9523E50A01005F79E3 /* AlgorithmsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlgorithmsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9770F9723E50A01005F79E3 /* AlgorithmsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlgorithmsTests.swift; sourceTree = "<group>"; };
 		A9770F9923E50A01005F79E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 			children = (
 				A932A5A32418EDD0008D31EE /* LinkedList.swift */,
 				A92039C72418F658005CC0B7 /* BinaryTree.swift */,
+				A946B50A241E523100978A8C /* Stack.swift */,
 			);
 			path = "Data Structure";
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 				A92039C82418F658005CC0B7 /* BinaryTree.swift in Sources */,
 				A929674C23D08B3A00807D6D /* Algorithms.swift in Sources */,
 				A929673A23D087B100807D6D /* SceneDelegate.swift in Sources */,
+				A946B50B241E523100978A8C /* Stack.swift in Sources */,
 				A932A5A42418EDD0008D31EE /* LinkedList.swift in Sources */,
 				A9872B92240B8E9E00C632F8 /* extension.swift in Sources */,
 				A929673C23D087B100807D6D /* ContentView.swift in Sources */,

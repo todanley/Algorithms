@@ -18,6 +18,29 @@ public class TreeNode
     {
         self.val = val
     }
+    
+    func inordePrint()
+    {
+        left?.inordePrint()
+        print("\n", val)
+        right?.inordePrint()
+    }
+    
+    func inorderPrintIterative()
+    {
+        var stack = Stack<TreeNode>()
+        var curr = self
+        
+        while curr.left != nil
+        {
+            stack.push(curr)
+            curr = curr.left!
+        }
+        
+        let popped = stack.pop()
+        print("\n", popped?.val ?? "stack popped error")
+        
+    }
 }
 
 
@@ -34,7 +57,7 @@ public class BinaryTree
     {
         return BinaryTree.convertToDLL(root).head
     }
-    
+
     static func convertToDLL(_ node: TreeNode) -> DoublyListNode
     {
         var na: DoublyListNode?
