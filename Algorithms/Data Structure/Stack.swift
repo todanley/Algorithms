@@ -8,24 +8,30 @@
 
 import Foundation
 
-class Stack<T>
+struct Stack<T>
 {
     private var arr = [T]()
     var isEmpty: Bool {
-        return arr.count == 0
-    }
-    var top: T?
-    {
-        return arr.last
+        return top == 0
     }
     
-    func push(_ val: T)
+    var top: Int
+    {
+        return arr.count - 1
+    }
+
+    mutating func push(_ val: T)
     {
         arr.append(val)
     }
     
-    func pop()
+    mutating func pop()
     {
+        if top == 0
+        {
+            fatalError("stack underflow")
+        }
+
         arr = arr.dropLast()
     }
 }
