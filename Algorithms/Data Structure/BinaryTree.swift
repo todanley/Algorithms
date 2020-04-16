@@ -8,8 +8,12 @@
 
 import Foundation
 
-public class TreeNode
+public class TreeNode: Equatable
 {
+    public static func == (lhs: TreeNode, rhs: TreeNode) -> Bool {
+        return lhs.val == rhs.val && lhs.left == rhs.left && lhs.right == rhs.right
+    }
+    
     var val: Int
     public var left: TreeNode?
     public var right: TreeNode?
@@ -39,10 +43,8 @@ public class TreeNode
                 curr = curr?.left
             }
 
-            let popped = stack.top
-            print("\n", popped?.val ?? "stack popped error")
-            stack.pop()
-            curr = popped?.right
+            let popped = stack.pop()
+            curr = popped.right
         }
     }
     
@@ -67,9 +69,8 @@ public class TreeNode
                 curr = curr?.left
             }
 
-            let popped = stack.top
-            stack.pop()
-            curr = popped?.right
+            let popped = stack.pop()
+            curr = popped.right
         }
     }
     

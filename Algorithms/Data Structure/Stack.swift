@@ -8,30 +8,40 @@
 
 import Foundation
 
-struct Stack<T>
+struct Stack<T>: ArrBased where T: Equatable
 {
-    private var arr = [T]()
+    internal var arr = [T?]()
     var isEmpty: Bool {
-        return top == 0
+        return arr.count == 0
     }
     
     var top: Int
     {
-        return arr.count - 1
+        return arr.count == 0 ? -1 : arr.count - 1
     }
-
+    
     mutating func push(_ val: T)
     {
         arr.append(val)
     }
     
-    mutating func pop()
+    mutating func pop() -> T
     {
-        if top == 0
+        if top < 0
         {
             fatalError("stack underflow")
         }
-
+        
+        let res = arr[top]!
         arr = arr.dropLast()
+        return res
     }
 }
+
+//struct StackUQ<T>
+//{
+//    private var q1 = Queue<T>()
+//    private var q2 = Queue<T>()
+//
+//}
+//}
