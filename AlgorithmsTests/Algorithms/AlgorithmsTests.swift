@@ -33,7 +33,7 @@ class AlgorithmsTests: XCTestCase {
 //        tree.root.right = TreeNode(15)
 //        tree.root.right?.left = TreeNode(36)
 //        tree.root.right?.right = TreeNode(38)
-//        tree.root.right?.left?.left = TreeNode(25)
+//        tree.root.right?.left?.left = TreeNoe(25)
 //
 //        let converted = tree.convertToDLL()
 //
@@ -49,16 +49,27 @@ class AlgorithmsTests: XCTestCase {
 //        var vals = [1,3,4,2]
 //        vals.sort()
         
-        let arr = [2,3,1,0,2,5,3,3,2,1,4,5,6]
-        print("abc")
-        print(shared.findDuplicate(arr))
+//        let arr = [2,3,1,0,2,5,3,3,2,1,4,5,6]
+//        print("abc")
+//        print(shared.findDuplicate(arr))
         }
 
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-
+    
     func testExample() {
+        
+        
+        let sd = Algorithms.shared
+        let arr = [7,7,12,16,41,48,41,48,11,9,34,2,44,30,27,12,11,39,31,8,23,11,47,25,15,23,4,17,11,50,16,50,38,34,48,27,16,24,22,48,50,10,26,27,9,43,13,42,46,24]
+        
+//                let arr = [2,3,4,1]
+        let res = Algorithms.DP.stoneGame.stoneGame(arr)
+        print("res  ", res)
+        
+        let num = Algorithms.DP.stoneGameStand.stoneGame(arr)
+        print("num", num)
         
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.

@@ -35,6 +35,9 @@ class BinaryTreeTest: XCTestCase {
     
         let node = TreeNode.reconstructTree(inorder: inorder, preorder: preorder)
         print(node)
+        
+        print("ahahah")
+        print(4%2)
     }
 
 }
