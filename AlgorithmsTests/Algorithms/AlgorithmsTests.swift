@@ -75,6 +75,16 @@ class AlgorithmsTests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
     
+    func testPow()
+    {
+        let sd = Algorithms.shared
+        XCTAssertEqual(pow(2, 10),  sd.pow(2, 10))
+        
+        XCTAssertEqual(pow(1, 100),  sd.pow(1, 100))
+        XCTAssertEqual(pow(-2, 30),  sd.pow(-2, 30))
+        XCTAssertEqual(pow(3, -30),  sd.pow(3, -30))
+    }
+    
     func testPerformanceExample() {
         // This is an example of a performance test case.
         measure {

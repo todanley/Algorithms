@@ -528,5 +528,88 @@ class Algorithms
         }
     }
     
-}
+    func subMatAllOnes(_ mat: [[Int]]) -> Int
+    {
+        let h = mat.count
+        let w = mat[0].count
+        
+        if h == 0
+        {
+            return 0
+        }
+        
+        var dp = [[Int]].init(repeating: [Int].init(repeating: 0, count: w), count: h)
+        
+        for i in 0..<h
+        {
+            for j in 0..<w
+            {
+                if mat[i][j] == 0
+                {
+                    dp[i][j] = 0
+                }
+                else
+                {
+                    if i == 0 || j == 0
+                    {
+                        dp[i][j] = mat[i][j]
+                    }
+                    else
+                    {
+                        dp[i][j] = min(dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1]) + 1
+                    }
+                }
+            }
+        }
+        
+        return dp.reduce(0, { (res, next) in
+            res + next.reduce(0, {
+                (resu, nex) in
+                resu + nex
+            })
+        })
+    }
+    
+    func binNoOne(_ i: Int) -> Int
+    {
+        var res = 0
+        while i > 0
+        {
+            if i & 1 != 0
+            {
+                res += 1
+            }
+            res >>= 1
+        }
+        
+        return res
+    }
+    
+    func pow(_ base: Double, _ exp: Int) -> Double
+    {
+        if base == 0
+        {
+            fatalError()
+        }
+        
+        if exp == 0
+        {
+            return 1
+        }
+        
+        let absExp = abs(exp)
+        let res = calPow(base, absExp)
 
+        return exp > 0 ? res : 1 / res
+    }
+    
+    func calPow(_ base: Double, _ exp: Int) -> Double
+    {
+        if exp > 1
+        {
+            let res = calPow(base, exp >> 1)
+            return (exp & 0b1 == 0) ? res * res : res * res * base
+        }
+        return base
+    }
+}
